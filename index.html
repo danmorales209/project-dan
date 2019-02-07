@@ -18,11 +18,12 @@
 <body>
 
     <div class="container">
-        <div class="jumbotron">
+        <div class="jumbotron" id="jumbotron">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal" id="signUpModalButton">
                 Sign-Up
             </button>
+            <button type="button" id="signOutButton" style="display: none;">Sign-Out</button>
 
             <!-- Sign-Up Modal -->
             <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -56,12 +57,12 @@
 
 
             <!-- Sign-In Button -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal" id="signInModalButton">
                 Sign-In
             </button>
-            
+
             <!-- Sign In modal -->
-            
+
             <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -82,11 +83,19 @@
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="form-control" id="userPassword" placeholder="Password">
                                 </div>
-                                <button type="submit" class="btn btn-primary" id="signup">Sign-In</button>
+                                <button type="submit" class="btn btn-primary" id="signInButton">Sign-In</button>
+
                             </form>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="searchField" style="display: none;">
+                <div class="form-group">
+                    <label for="search">Search</label>
+                    <input type="text" class="form-control" id="user-search" placeholder="type something...">
+                </div>
+                <button type="submit" class="btn btn-primary" id="searchButton">Submit</button>
             </div>
         </div>
     </div>

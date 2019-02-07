@@ -9,8 +9,11 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
+var signOutButton = $("#signOutButton");
 
-$("#signin").on("click", function (event) {
+
+
+$("#signInButton").on("click", function (event) {
     event.preventDefault();
 
     // Sign in
@@ -22,8 +25,7 @@ $("#signin").on("click", function (event) {
         .signInWithEmailAndPassword(email, password)
         .catch(function (error) {
             // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            console.log(error)
         });
 });
 // Add signup event
@@ -39,4 +41,32 @@ $("#signUpButton").on("click", e => {
     promise = auth.createUserWithEmailAndPassword(email, password);
     promise.catch(e => console.log(e.message));
 });
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+        $("#signInModalButton").hide();
+        $("#signUpModalButton").hide();
+        $("#searchField").show();
+        signOutButton.show();
+
+    } else {
+        // No user is signed in.
+        console.log("no user")
+    }
+});
+
+
+signOutButton.on("click", function(){
+    $("#signInModalButton").show();
+    $("#signUpModalButton").show();
+    $("#searchField").hide();
+    signOutButton.hide();
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+})
+
 
