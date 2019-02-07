@@ -13,7 +13,9 @@ var database = firebase.database();
 $("#searchButton").on("click", function (e) {
     e.preventDefault();
    var input = $("#user-input").val().trim();
-    database.ref().push({
-        input: input,
-    })
+    // database.ref().push({
+    //     input: input,
+    // })
+    console.log(input);
+    $("#user-input").val(" ");
 });
