@@ -10,29 +10,24 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-$("#signin").on("click", function (event) {
-    event.preventDefault();
+// Order recipes from most to least in terms of grams of the required ingredient
+function sortByWeight(ingredient, data) {
+    let sortedRecipes = [];
+    let weightsIndex = [];
+    let maxWeight = Number.NEGATIVE_INFINITY;
 
-    // Sign in
-    var email = $("#userEmail").val();
-    var password = $("#userPassword").val();
+    for(let i = 0; i < data.hits.length; i++) {
+        for(let j = 0; j < data.hits[i].recipe.ingredients.length; j++) {
 
-    firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-        });
-});
-// Add signup event
-$("#signUpButton").on("click", e => {
+        }
+    }
+
+
+}
+
+$("#searchButton").on("click", function (e) {
     e.preventDefault();
     var input = $("#user-input").val().trim();
-    // database.ref().push({
-    //     input: input,
-    // })
     console.log(input);
 
     $.ajax({
