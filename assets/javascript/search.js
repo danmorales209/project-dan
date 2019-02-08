@@ -22,7 +22,7 @@ function sortByWeight(ingredient, data) {
     // find the weight of the ingredient of choice and add to an recipeWeights array
     // not very efficient, 
     for (let i = 0; i < data.hits.length; i++) {
-        console.log(data.hits[i].recipe.label)
+        //console.log(data.hits[i].recipe.label)
         for (let j = 0; j < data.hits[i].recipe.ingredients.length; j++) {
             if (data.hits[i].recipe.ingredients[j].text.includes(ingredientQuery)) {
                 recipeWeights.push([
@@ -78,7 +78,7 @@ function sortByWeight(ingredient, data) {
 
 $("#searchButton").on("click", function (e) {
     e.preventDefault();
-    var input = $("#user-input").val().trim();
+    var input = $("#user-search").val().trim();
 
     $.ajax({
         url: "https://api.edamam.com/search",
@@ -138,7 +138,7 @@ $("#searchButton").on("click", function (e) {
         else {
             for (let i = 0; i < jQueryObjectArray.length; i++) {
                 jQueryObjectArray[i].appendTo($("#recipe-display"));
-                if ((i+1) %3 ===0) {
+                if ((i + 1) % 3 === 0) {
                     $("#recipe.display").append($("<br>"));
                 }
             }
