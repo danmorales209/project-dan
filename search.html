@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Too Much Food</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <form>
+                <div class="form-group">
+                    <label for="search">Search</label>
+                    <input type="text" class="form-control" id="user-input" placeholder="type something...">
+                </div>
+                <button type="submit" class="btn btn-primary" id="searchButton">Submit</button>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="recipe-display" ></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/javascript/search.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
