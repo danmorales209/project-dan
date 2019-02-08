@@ -9,5 +9,33 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
+var signOutButton = $("#signOutButton");
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+        $("#signInModalButton").hide();
+        $("#signUpModalButton").hide();
+        $("#searchField").show();
+        signOutButton.show();
+
+    } else {
+        // No user is signed in.
+        console.log("no user")
+    }
+});
+
+
+signOutButton.on("click", function(){
+    $("#signInModalButton").show();
+    $("#signUpModalButton").show();
+    $("#searchField").hide();
+    signOutButton.hide();
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+})
 
 
