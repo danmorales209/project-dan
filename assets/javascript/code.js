@@ -57,16 +57,17 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 
-signOutButton.on("click", function(){
+signOutButton.on("click", function () {
     $("#signInModalButton").show();
     $("#signUpModalButton").show();
     $("#searchField").hide();
     signOutButton.hide();
-    firebase.auth().signOut().then(function() {
+    firebase.auth().signOut().then(function () {
         // Sign-out successful.
-      }).catch(function(error) {
+    }).catch(function (error) {
         // An error happened.
-      });
+    });
 })
+
 
 
