@@ -94,6 +94,11 @@ function sortByWeight(ingredientQuery, data) {
 
 // Add event listener for user-search button
 $("#searchButton").on("click", function (e) {
+
+    e.preventDefault();
+    var input = $("#user-search").val().trim();
+    $("#user-search").val(" ");
+
     e.preventDefault(); // Prevent the page from reloading on click
 
     // Get user input from the input text
@@ -204,5 +209,8 @@ $("#searchButton").on("click", function (e) {
     });
 
 
-    $("#user-input").val("");
+
 });
+
+});
+
