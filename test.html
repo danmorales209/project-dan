@@ -29,29 +29,7 @@
         //                    Zomato query                       /
         //                                                       /
         //*******************************************************/
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function success(pos) {
-                myLocation = pos.coords;
-                $.ajax({
-                    url: "https://developers.zomato.com/api/v2.1/search",
-                    type: "GET",
-                    dataType: "json",
-                    headers: {
-                        "user-key": "02308553736bbacac2a5665f7ec68257"
-                    },
-                    data: {
-                        q: "mexican",
-                        lat: myLocation.latitude,
-                        long: myLocation.longitude,
-                        radius: 10000,
-                        sort: "real_distance",
-                        order: "asc"
-                    }
-                }).then(function (response) {
-                    console.log("Zomato", response);
-                });
-            });
-        }
+        
 
 
         //*******************************************************/
