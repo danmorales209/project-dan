@@ -1,6 +1,22 @@
+function distanceBetweenLatLong(origin, location) {
+    // Function uses Haversince's formula to determine the distance between two sets of latitudes and longitudes
+    let radiusOfEarth = 6371 // km
+    let dLat = degToRad(location.latitude - origin.latitude);
+    let dLong = degToRad(location.longitude - origin.longitude);
+    let sine = Math.sin();
+    let cosine = Math.cos();
 
+    let a = sine(dLat / 2) * sine(dLat / 2) + cosine(degToRad(location.latitude)) * cosine(degToRad(origin.latitude)) * sine(dLong / 2) * sine(dLong / 2);
 
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    let d = radiusOfEarth * c;
 
+    return (d *0.621371) // return miles
+}
+
+function degToRad(degrees) {
+    return (degrees * (Math.PI / 180));
+}
 
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
@@ -46,7 +62,7 @@ $("#searchButton").on("click", function (event) {
                     let saveButton = $("<button>").addClass("btn btn-success float-right").text("Save");
 
                     // Functionality not needed? Can change this to something more useful
-                    let cardBodyText = $("<p>").text( 
+                    let cardBodyText = $("<p>").text(
                         `Average price for two: ${response.restaurants[i].restaurant.currency}${response.restaurants[i].restaurant.average_cost_for_two}`);
 
                     cardBodyText.addClass("w-50");
@@ -55,7 +71,7 @@ $("#searchButton").on("click", function (event) {
                         "href": response.restaurants[i].restaurant.url,
                         "target": "_blank"
                     });
-                    newA.addClass("card-header").text(response.restaurants[i].restaurant.name);
+                    newA.addClass("card-header").text(`${response.restaurants[i].restaurant.name} | Rating: ${response.restaurants[i].restaurant.user_rating.aggregate_rating}`);
 
                     newCard.append(newA);
                     newCardBody.append(saveButton);
@@ -87,12 +103,6 @@ $("#searchButton").on("click", function (event) {
 
                         newCol.appendTo(newRow);
 
-                        /*
-                        if ((i + 1) % 3 === 0) {
-                            $("#recipe-display").append(newRow);
-                            newRow = $("<div>").addClass("row");
-                        }
-                        */
                     }
                     $("#recipe-display").append(newRow);
                 }
