@@ -13,95 +13,135 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
+    <style>
+        body {
+            background-image: url("assets/images/food.jpg");
+            background-attachment: fixed;
+        }
+
+        .container {
+            background: rgba(230, 230, 230, 0.6);
+        }
+
+        /* nav {
+        background-color: rgb(57, 115, 172);
+    } */
+        .btn {
+            background-color: rgb(174, 100, 56);
+            border: 2px solid rgb(43, 74, 114);
+            color: rgb(165, 219, 142);
+        }
+        #signUpButton {
+            background-color: white;
+            border: 2px solid black;
+            color: black;
+        }
+        #signInButton {
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
-        <div class="jumbotron" id="jumbotron">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal"
-                id="signUpModalButton">
-                Sign-Up
-            </button>
-            <button type="button" id="signOutButton" style="display: none;">Sign-Out</button>
 
-            <!-- Sign-Up Modal -->
-            <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Create Log-In</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" id="newEmail" aria-describedby="emailHelp"
-                                        placeholder="Enter email">
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email
-                                        with anyone else.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="newPassword" placeholder="Password">
-                                </div>
-                                <button type="submit" class="btn btn-primary" id="signUpButton" data-dismiss="modal">Sign-Up</button>
-                            </form>
-                        </div>
+        <!-- NavBar -->
+        <nav class="bg-transparent p-2">
+            <h1 class="float-left display-4">Too Much Food</h1>
+
+            <div class="float-right">
+                <!-- Sign Up Button -->
+                <button type="button" class="btn" data-toggle="modal" data-target="#signUpModal" id="signUpModalButton">
+                    Sign-Up
+                </button>
+
+                <!-- Sign-In Button -->
+
+                <button type="button" class="btn" data-toggle="modal" data-target="#signInModal" id="signInModalButton">
+                    Sign-In
+                </button>
+
+                <!-- Sign Out Button -->
+
+                <button type="button" class="btn" id="signOutButton" style="display: none;">Sign-Out</button>
+            </div>
+            <div class="clearfix"></div>
+
+        </nav>
+
+        <!-- Sign-Up Modal -->
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Log-In</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="newEmail" aria-describedby="emailHelp"
+                                    placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email
+                                    with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="Password">
+                                <small id="emailHelp" class="form-text text-muted">Password must be 6 or more
+                                    characters.</small>
+                            </div>
+                            <button type="submit" class="btn" id="signUpButton" data-dismiss="modal">Sign-Up</button>
+                        </form>
                     </div>
                 </div>
-            </div>
-
-
-            <!-- Sign-In Button -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal"
-                id="signInModalButton">
-                Sign-In
-            </button>
-
-            <!-- Sign In modal -->
-
-            <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Sign-In</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp"
-                                        placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="userPassword"
-                                        placeholder="Password">
-                                </div>
-                                <button type="submit" class="btn btn-primary" id="signInButton" data-dismiss="modal">Sign-In</button>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Search field and button -->
-            <div id="searchField" style="display: none;">
-                <div class="form-group">
-                    <label for="search">Search</label>
-                    <input type="text" class="form-control" id="user-search" placeholder="type something...">
-                </div>
-                <button type="submit" class="btn btn-primary" id="searchButton">Submit</button>
             </div>
         </div>
+
+        <!-- Sign In modal -->
+
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sign-In</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp"
+                                    placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn" id="signInButton" data-dismiss="modal">Sign-In</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Search field and button -->
+        <div id="searchField" style="display: none;">
+            <div class="form-group">
+                <label for="search" class="p-2 display-4">Search</label>
+                <input type="text" class="form-control" id="user-search" placeholder="&#x1F50D;">
+            </div>
+            <button type="submit" class="btn m-2" id="searchButton">Submit</button>
+        </div>
+
         <div class="row">
             <div class="col">
                 <div id="recipe-display"></div>
