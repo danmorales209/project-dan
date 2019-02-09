@@ -61,8 +61,10 @@ signOutButton.on("click", function () {
     $("#signUpModalButton").show();
     $("#searchField").hide();
     signOutButton.hide();
+    $("#recipe-display").empty();
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
+        console.log("signed out")
     }).catch(function (error) {
         // An error happened.
     });
