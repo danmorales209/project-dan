@@ -93,11 +93,11 @@ function sortByWeight(ingredientQuery, data) {
 }
 
 // Add event listener for user-search button
-$("#user-search").on("click", function (e) {
+$("#searchButton").on("click", function (e) {
     e.preventDefault(); // Prevent the page from reloading on click
 
     // Get user input from the input text
-    var rawInput = $("#user-input").val().trim();
+    var rawInput = $("#user-search").val().trim();
 
     // check input for multiple ingredients. Only uses first ingredient for sorting
     // Also use .toLowerCase to ensure uniform input
