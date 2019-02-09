@@ -67,9 +67,3 @@ signOutButton.on("click", function () {
         // An error happened.
     });
 })
-
-
-
-$("#searchButton").on("click", function () {
-    console.log("clicked");
-})
