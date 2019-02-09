@@ -15,8 +15,6 @@ var signOutButton = $("#signOutButton");
 
 $("#signInButton").on("click", function (event) {
     event.preventDefault();
-
-
     // Sign in
     var email = $("#userEmail").val();
     var password = $("#userPassword").val();
