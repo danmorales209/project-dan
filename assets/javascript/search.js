@@ -80,8 +80,6 @@ $("#searchButton").on("click", function (e) {
     e.preventDefault();
     var input = $("#user-search").val().trim();
     $("#user-search").val(" ");
-    console.log(input)
-    console.log("clicked");
     $.ajax({
         url: "https://api.edamam.com/search",
         type: "GET",
@@ -148,5 +146,4 @@ $("#searchButton").on("click", function (e) {
     });
 
 
-    $("#user-input").val("");
 });
