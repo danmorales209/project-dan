@@ -78,8 +78,10 @@ function sortByWeight(ingredient, data) {
 
 $("#searchButton").on("click", function (e) {
     e.preventDefault();
-    var input = $("#user-input").val().trim();
-
+    var input = $("#user-search").val().trim();
+    $("#user-search").val(" ");
+    console.log(input)
+    console.log("clicked");
     $.ajax({
         url: "https://api.edamam.com/search",
         type: "GET",
