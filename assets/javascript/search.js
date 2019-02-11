@@ -137,11 +137,8 @@ $("#recipeButton").on("click", function (e) {
         // iterate through the sorted recipe array
         for (let i = 0; i < sortedRecipes.length; i++) {
 
-            // reset this index value (will store the array value of the ingredient of interest)
-            let ingredientOfInterestIndex = 0;
-
             // jQuery methods to build out the Bootstrap Cards
-            let newCard = $("<div>").addClass("card");
+            let newCard = $("<div>").addClass("card recipe-card");
             let recipePic = $("<img>").attr({
                 "src": sortedRecipes[i][0].recipe.image,
                 "alt": sortedRecipes[i][0].recipe.label + " recipe"
