@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Test area for APIs</title>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -16,44 +16,42 @@
     <div id="results"></div>
 
     <script>
-       
+
+        var myLocation;
+
+
+        
+
+
+
 
         //*******************************************************/
-        //                  food2fork query                      /
-        //                  **   Works   **                      /
+        //                    Zomato query                       /
+        //                                                       /
         //*******************************************************/
         
-        $.ajax({
-            url: "https://www.food2fork.com/api/search",
-            type: "GET",
-            dataType: "json",
-            data: {
-                key: "efff66f669a584770e083aa9bbdd6387",
-                q: "broccoli"
-            }
-        }).then(function (response) {
-            console.log("Food2Fork", response);
-        });
-        
+
 
         //*******************************************************/
         //                   Edamam query                        /
         //                   ** Works  **                        /
         //*******************************************************/
-        
+
+        /*
         $.ajax({
-            url: "https://api.edamam.com/search",
-            type: "GET",
-            dataType: "json",
-            data: {
-                "q": "broccoli",
-                "app_id": "66831f0c",
-                "app_key": "ddc7c6490ffc861d706c7d47d312419d",
-            }
-        }).then(function (response) {
-            console.log("Edamam", response);
-        });
-        
+             url: "https://api.edamam.com/search",
+             type: "GET",
+             dataType: "json",
+             data: {
+                 "q": "broccoli",
+                 "app_id": "66831f0c",
+                 "app_key": "ddc7c6490ffc861d706c7d47d312419d",
+             }
+         }).then(function (response) {
+             console.log("Edamam", response);
+         });
+         */
+
 
 
 
