@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
+    <script src="assets/javascript/location.js"></script>
     <style>
         body {
             background-image: url("assets/images/food.jpg");
@@ -31,11 +32,13 @@
             border: 2px solid rgb(43, 74, 114);
             color: rgb(165, 219, 142);
         }
+
         #signUpButton {
             background-color: white;
             border: 2px solid black;
             color: black;
         }
+
         #signInButton {
             background-color: white;
             color: black;
@@ -136,10 +139,11 @@
         <!-- Search field and button -->
         <div id="searchField" style="display: none;">
             <div class="form-group">
-                <label for="search" class="p-2 display-4">Search</label>
+                <label for="user-search" class="p-2 display-4">Search</label>
                 <input type="text" class="form-control" id="user-search" placeholder="&#x1F50D;">
             </div>
-            <button type="submit" class="btn m-2" id="searchButton">Submit</button>
+            <button class="btn m-2" id="recipeButton">Search for Recipes</button>
+            <button class="btn m-2" id="restaurantButton">Search for Restaurants</button>
         </div>
 
         <div class="row">
@@ -151,9 +155,7 @@
 
 
     <script src="assets/javascript/code.js"></script>
-    <!--
-        <script src="assets/javascript/search.js"></script>
-    -->
+    <script src="assets/javascript/search.js"></script>
     <script src="assets/javascript/restaraunt.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
 </body>

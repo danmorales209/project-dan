@@ -29,9 +29,9 @@ function sortByWeight(ingredientQuery, data) {
                     // Add 2 element array at index i to recipeWeights
                     // recipeWeights [i][0] containes the weight of the ingredient,
                     // recipeWeights [i][1] containes the index of the original array (important for later)
+                    // recipeWeights [i][2] containes the index of the line in the recipe ingredient array
                     recipeWeights.push([
-                        data.hits[i].recipe.ingredients[j].weight,
-                        i
+                        data.hits[i].recipe.ingredients[j].weight, i, j
                     ]);
                 }
 
@@ -39,6 +39,7 @@ function sortByWeight(ingredientQuery, data) {
                 // Might be appropiate to check for duplicates / accumulate more <-- addition for later date --> 
                 else if (((recipeWeights.length - 1) === i) && (recipeWeights[i][0] < data.hits[i].recipe.ingredients[j].weight)) {
                     recipeWeights[i][0] = data.hits[i].recipe.ingredients[j].weight;
+                    recipeWeights[i][2] = j;
                 }
             }
         }
@@ -53,7 +54,7 @@ function sortByWeight(ingredientQuery, data) {
     // element is removed from the recipeWeights array, until the recipe wieghts array is empty.
     while (!isSorted) {
         // Reset values
-        maxWeight = [0, 0];
+        maxWeight = [0, 0, 0];
         maxWeightIndex = 0;
 
         // inner loops finds the max weight in the iteration. maxWeight stores the appicable 2 element array from 
@@ -66,8 +67,8 @@ function sortByWeight(ingredientQuery, data) {
         }
 
         // Use the second element of maxWeights to push the corresponsing element from API query result to output
-        // array.
-        outputArray.push(data.hits[maxWeight[1]]);
+        // array, and pushes the index of the ingredient array
+        outputArray.push([data.hits[maxWeight[1]], maxWeight[2]]);
 
         // This removes the max weight from the recipeWeights array. Use different methods depending on where the
         // max weight was in the array
@@ -93,12 +94,12 @@ function sortByWeight(ingredientQuery, data) {
 }
 
 // Add event listener for user-search button
-$("#searchButton").on("click", function (e) {
+$("#recipeButton").on("click", function (e) {
     var input = $("#user-search").val().trim();
     var rawInput = $("#user-search").val().trim();
-    
+
     e.preventDefault(); // Prevent the page from reloading on click
-    
+
     // Get user input from the input text
     $("#user-search").val(" ");
 
@@ -138,19 +139,11 @@ $("#searchButton").on("click", function (e) {
             // reset this index value (will store the array value of the ingredient of interest)
             let ingredientOfInterestIndex = 0;
 
-            // find the index of the ingredient. *** Finds first instancse, not necesarily the hightest*** 
-            /* Functionality Not needed? */
-            for (let j = 0; j < sortedRecipes[i].recipe.ingredients.length; j++) {
-                if (sortedRecipes[i].recipe.ingredients[j].text.includes(input)) {
-                    ingredientOfInterestIndex = j;
-                }
-            }
-
             // jQuery methods to build out the Bootstrap Cards
             let newCard = $("<div>").addClass("card");
             let recipePic = $("<img>").attr({
-                "src": sortedRecipes[i].recipe.image,
-                "alt": sortedRecipes[i].recipe.label + " recipe"
+                "src": sortedRecipes[i][0].recipe.image,
+                "alt": sortedRecipes[i][0].recipe.label + " recipe"
             });
             recipePic.addClass("card-img-top");
 
@@ -158,12 +151,15 @@ $("#searchButton").on("click", function (e) {
             let saveButton = $("<button>").addClass("btn btn-success").text("Save");
 
             // Functionality not needed? Can change this to something more useful
-            let cardBodyText = $("<p>").text(input + ": " + parseInt(sortedRecipes[i].recipe.ingredients[ingredientOfInterestIndex].weight) + " grams.");
+            let cardBodyText = $("<div>");
+            cardBodyText.append($("<p>").text(input + ": " + parseFloat(sortedRecipes[i][0].recipe.ingredients[sortedRecipes[i][1]].weight * 0.035274).toFixed(2) + " oz."));
+            cardBodyText.append($("<p>").text(sortedRecipes[i][0].recipe.ingredients[sortedRecipes[i][1]].text));
+            
             let newA = $("<a>").attr({
-                "href": sortedRecipes[i].recipe.url,
+                "href": sortedRecipes[i][0].recipe.url,
                 "target": "_blank"
             });
-            newA.addClass("card-header").text(sortedRecipes[i].recipe.label);
+            newA.addClass("card-header").text(sortedRecipes[i][0].recipe.label);
 
             newCard.append(newA);
             newCard.append(recipePic);
