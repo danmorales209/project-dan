@@ -140,7 +140,7 @@ $("#recipeButton").on("click", function (e) {
             let ingredientOfInterestIndex = 0;
 
             // jQuery methods to build out the Bootstrap Cards
-            let newCard = $("<div>").addClass("card");
+            let newCard = $("<div>").addClass("card animated bounceInRight");
             let recipePic = $("<img>").attr({
                 "src": sortedRecipes[i][0].recipe.image,
                 "alt": sortedRecipes[i][0].recipe.label + " recipe"

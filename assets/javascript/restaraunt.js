@@ -63,7 +63,7 @@ $("#restaurantButton").on("click", function (event) {
 
 
             // jQuery methods to build out the Bootstrap Cards
-            let newCard = $("<div>").addClass("card");
+            let newCard = $("<div>").addClass("card animated bounceInRight");
 
             let newCardBody = $("<div>").addClass("card-body");
             let saveButton = $("<button>").addClass("btn btn-success float-right").text("Save");
