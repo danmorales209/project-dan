@@ -18,15 +18,19 @@
         body {
             background-image: url("assets/images/food.jpg");
             background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        nav {
+            background: rgba(230, 230, 230, 0.6);
+
         }
 
         .container {
             background: rgba(230, 230, 230, 0.6);
         }
 
-        /* nav {
-        background-color: rgb(57, 115, 172);
-    } */
         .btn {
             background-color: rgb(174, 100, 56);
             border: 2px solid rgb(43, 74, 114);
@@ -44,36 +48,58 @@
             color: black;
             border: 2px solid black;
         }
+
+        #searchField {
+            font-size: 24px;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container ">
 
         <!-- NavBar -->
-        <nav class="bg-transparent p-2">
-            <h1 class="float-left display-4">Too Much Food</h1>
-
-            <div class="float-right">
+        <div class="row">
+            <nav class=" p-2 navbar navbar-default fixed-top">
+                <div class="col-sm-10">
+                    <h1 class="float-left display-4">Too Much Food</h1>
+                </div>
+                <!-- <div class="float-right"> -->
                 <!-- Sign Up Button -->
-                <button type="button" class="btn" data-toggle="modal" data-target="#signUpModal" id="signUpModalButton">
-                    Sign-Up
-                </button>
+                <div class="col-sm-1 p-0 m-0">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#signUpModal"
+                        id="signUpModalButton">
+                        Sign-Up
+                    </button>
+                </div>
 
                 <!-- Sign-In Button -->
+                <div class="col-sm-1 p-0 m-0">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#signInModal"
+                        id="signInModalButton">
+                        Sign-In
+                    </button>
 
-                <button type="button" class="btn" data-toggle="modal" data-target="#signInModal" id="signInModalButton">
-                    Sign-In
-                </button>
+                    <!-- Sign Out Button -->
 
-                <!-- Sign Out Button -->
+                    <button type="button" class="btn" id="signOutButton" style="display: none;">Sign-Out</button>
+                </div>
+                <!-- </div> -->
 
-                <button type="button" class="btn" id="signOutButton" style="display: none;">Sign-Out</button>
-            </div>
-            <div class="clearfix"></div>
+                <!-- Search field and button -->
 
-        </nav>
+                <div id="searchField" style="display: none; display: flex; width: 100%; justify-content: space-between;" class="row">
+
+                    <div class="form-group col-sm-7">
+                        <input type="text" class="form-control" id="user-search" placeholder="&#x1F50D; search food">
+                    </div>
+                    <button class="btn m-2 col-sm-2" id="recipeButton">Search for Recipes</button>
+                    <button class="btn m-2 col-sm-2" id="restaurantButton">Search for Restaurants</button>
+                </div>
+
+            </nav>
+        </div>
 
         <!-- Sign-Up Modal -->
         <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -135,15 +161,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Search field and button -->
-        <div id="searchField" style="display: none;">
-            <div class="form-group">
-                <label for="user-search" class="p-2 display-4">Search</label>
-                <input type="text" class="form-control" id="user-search" placeholder="&#x1F50D;">
-            </div>
-            <button class="btn m-2" id="recipeButton">Search for Recipes</button>
-            <button class="btn m-2" id="restaurantButton">Search for Restaurants</button>
         </div>
 
         <div class="row">

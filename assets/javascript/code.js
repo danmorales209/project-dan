@@ -47,6 +47,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#signInModalButton").hide();
         $("#signUpModalButton").hide();
         $("#searchField").show();
+        $("#searchField").css("display: inline-block;")
         signOutButton.show();
 
     } else {
