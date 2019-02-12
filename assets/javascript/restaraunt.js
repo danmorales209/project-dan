@@ -79,7 +79,8 @@ $("#restaurantButton").on("click", function (event) {
             distance = distanceBetweenLatLong(myLocation, restaurantLocation);
 
             // jQuery methods to build out the Bootstrap Cards
-            let newCard = $("<div>").addClass("card restaurant-card");
+
+            let newCard = $("<div>").addClass("card animated restaurant-card bounceInRight");
 
             let newCardBody = $("<div>").addClass("card-body");
             let saveButton = $("<button>").addClass("btn btn-success float-right").text("Save");

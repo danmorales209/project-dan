@@ -138,7 +138,8 @@ $("#recipeButton").on("click", function (e) {
         for (let i = 0; i < sortedRecipes.length; i++) {
 
             // jQuery methods to build out the Bootstrap Cards
-            let newCard = $("<div>").addClass("card recipe-card");
+            let newCard = $("<div>").addClass("card recipe-card animated bounceInRight");
+          
             let recipePic = $("<img>").attr({
                 "src": sortedRecipes[i][0].recipe.image,
                 "alt": sortedRecipes[i][0].recipe.label + " recipe"
