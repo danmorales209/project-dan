@@ -11,6 +11,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var signOutButton = $("#signOutButton");
 $("#searchField").hide();
+$("#about").show();
 
 
 
@@ -48,7 +49,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#signInModalButton").hide();
         $("#signUpModalButton").hide();
         $("#searchField").show();
-        $("#searchField").css("display: inline-block;")
+        $("#searchField").css("display: inline-block;");
+        $("#about").hide();
         signOutButton.show();
 
     } else {
