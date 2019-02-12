@@ -17,119 +17,126 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+
 </head>
 
 <body>
 
     <div class="container">
-
         <!-- NavBar -->
-        <div class="row">
-            <nav class=" p-2 navbar navbar-default fixed-top animated fadeInDown">
-                <div class="col-sm-10">
+        <nav class=" p-2 navbar navbar-default animated bg-transparent fadeInDown">
+            <div class="row w-100">
+                <div class="col-sm-9">
                     <h1 class="float-left display-4">Too Much Food</h1>
                 </div>
                 <!-- <div class="float-right"> -->
                 <!-- Sign Up Button -->
-                <div class="col-sm-1 p-0 m-0">
-                    <button type="button" class="btn" data-toggle="modal" data-target="#signUpModal"
-                        id="signUpModalButton">
+                <div id="signUpModalButton" class="col-sm-1 p-0 m-0">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#signUpModal">
                         Sign-Up
                     </button>
                 </div>
 
                 <!-- Sign-In Button -->
-                <div class="col-sm-1 p-0 m-0">
-                    <button type="button" class="btn" data-toggle="modal" data-target="#signInModal"
-                        id="signInModalButton">
+                <div id="signInModalButton" class="col-sm-1 p-0 m-0">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#signInModal">
                         Sign-In
                     </button>
 
                     <!-- Sign Out Button -->
-
+                </div>
+                <div class="col-sm-2 p-0 m-0 text-center">
                     <button type="button" class="btn" id="signOutButton" style="display: none;">Sign-Out</button>
                 </div>
-                <!-- </div> -->
 
                 <!-- Search field and button -->
+                <div id="searchField" class="row w-100">
+                    <!---<div id="searchField" style="display: flex; width: 100%; justify-content: space-between;"
+                        class="row"> -->
 
-                <div id="searchField" style="display: flex; width: 100%; justify-content: space-between;" class="row">
-
-                    <div class="form-group col-sm-7">
+                    <div class="col-sm-7">
                         <input type="text" class="form-control" id="user-search" placeholder="&#x1F50D; search food">
                     </div>
-                    <button class="btn m-2 col-sm-2" id="recipeButton">Search for Recipes</button>
-                    <button class="btn m-2 col-sm-2" id="restaurantButton">Search for Restaurants</button>
-                </div>
-
-            </nav>
-        </div>
-
-        <!-- Sign-Up Modal -->
-        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Create Log-In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <div class="col-2-sm">
+                        <button class="btn m-2 " id="recipeButton">Search for Recipes</button>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" id="newEmail" aria-describedby="emailHelp"
-                                    placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email
-                                    with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="newPassword" placeholder="Password">
-                                <small id="emailHelp" class="form-text text-muted">Password must be 6 or more
-                                    characters.</small>
-                            </div>
-                            <button type="submit" class="btn" id="signUpButton" data-dismiss="modal">Sign-Up</button>
-                        </form>
+                    <div class="col-2-sm">
+                        <button class="btn m-2 " id="restaurantButton">Search for Restaurants</button>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Sign In modal -->
-
-        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Sign-In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp"
-                                    placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="userPassword" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn" id="signInButton" data-dismiss="modal">Sign-In</button>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </nav>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col">
-                <div id="recipe-display"></div>
+                <div id="recipe-display">
+                    <p id="about animated fadeInDown">
+                        Welcome to our page
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign-Up Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Log-In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" id="newEmail" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email
+                                with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="newPassword" placeholder="Password">
+                            <small id="emailHelp" class="form-text text-muted">Password must be 6 or more
+                                characters.</small>
+                        </div>
+                        <button type="submit" class="btn" id="signUpButton" data-dismiss="modal">Sign-Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In modal -->
+
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign-In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp"
+                                placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn" id="signInButton" data-dismiss="modal">Sign-In</button>
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>

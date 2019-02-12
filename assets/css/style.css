@@ -35,3 +35,7 @@ nav {
 #searchField {
     font-size: 24px;
 }
+
+#about {
+    background-color: rgba(165, 219, 142, 0.75); 
+}
