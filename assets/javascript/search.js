@@ -147,7 +147,7 @@ $("#recipeButton").on("click", function (e) {
             recipePic.addClass("card-img-top");
 
             let newCardBody = $("<div>").addClass("card-body");
-            let saveButton = $("<button>").addClass("btn btn-success").text("Save");
+            //let saveButton = $("<button>").addClass("btn btn-success").text("Save");
 
             // Functionality not needed? Can change this to something more useful
             let cardBodyText = $("<div>");
@@ -163,7 +163,7 @@ $("#recipeButton").on("click", function (e) {
             newCard.append(newA);
             newCard.append(recipePic);
             newCardBody.append(cardBodyText);
-            newCardBody.append(saveButton);
+            //newCardBody.append(saveButton);
             newCard.append(newCardBody);
 
             // After all components of the card have been added, push the jQuery object to cardArray

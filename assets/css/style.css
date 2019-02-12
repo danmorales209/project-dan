@@ -39,3 +39,21 @@ nav {
 #about {
     background-color: rgba(165, 219, 142, 0.75); 
 }
+
+#page-heading{
+    background-color: rgba(255, 255, 255, .5);
+}
+
+#title-text {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    font-size: 3.5em;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+    text-shadow: 2px 2px 3px grey;
+    z-index: 0;
+}
+
+html, #signUpModal, #signInModal {
+    height: auto;
+}
