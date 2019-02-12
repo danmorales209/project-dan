@@ -95,13 +95,14 @@ function sortByWeight(ingredientQuery, data) {
 
 // Add event listener for user-search button
 $("#recipeButton").on("click", function (e) {
+    // Get user input from the input text
     var input = $("#user-search").val().trim();
     var rawInput = $("#user-search").val().trim();
 
     e.preventDefault(); // Prevent the page from reloading on click
 
-    // Get user input from the input text
-    $("#user-search").val(" ");
+    // Clear text from user input
+    $("#user-search").val("");
 
     // check input for multiple ingredients. Only uses first ingredient for sorting
     // Also use .toLowerCase to ensure uniform input
@@ -136,11 +137,9 @@ $("#recipeButton").on("click", function (e) {
         // iterate through the sorted recipe array
         for (let i = 0; i < sortedRecipes.length; i++) {
 
-            // reset this index value (will store the array value of the ingredient of interest)
-            let ingredientOfInterestIndex = 0;
-
             // jQuery methods to build out the Bootstrap Cards
-            let newCard = $("<div>").addClass("card animated bounceInRight");
+            let newCard = $("<div>").addClass("card recipe-card animated bounceInRight");
+          
             let recipePic = $("<img>").attr({
                 "src": sortedRecipes[i][0].recipe.image,
                 "alt": sortedRecipes[i][0].recipe.label + " recipe"

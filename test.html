@@ -20,17 +20,29 @@
         var myLocation;
 
 
-        
-
-
-
-
         //*******************************************************/
         //                    Zomato query                       /
-        //                                                       /
+        //                      Works                            /
         //*******************************************************/
         
-
+        $.ajax({
+            url: "https://developers.zomato.com/api/v2.1/search",
+            type: "GET",
+            dataType: "json",
+            headers: {
+                "user-key": "02308553736bbacac2a5665f7ec68257"
+            },
+            data: {
+                q: searchTerm,
+                lat: 38.58157,
+                long: -121.4944,
+                radius: 10000, // meters
+                sort: "rating",
+                order: "desc"
+            }
+        }).then(function (response) {
+            console.log(response);
+        });
 
         //*******************************************************/
         //                   Edamam query                        /
