@@ -26,6 +26,14 @@ $("#restaurantButton").on("click", function (event) {
     // Get user input from <input> in html
     var searchTerm = $("#user-search").val().trim();
 
+    if (searchTerm.length === 0) {
+        $("#user-search").addClass("animated tada");
+        setTimeout(function () {
+            $("#user-search").removeClass("animated tada");
+        }, 1000);
+        return;
+    }
+
     // pull location from sessionStorage
     var myLocation = {
         "latitude": sessionStorage.myLat,
@@ -55,7 +63,7 @@ $("#restaurantButton").on("click", function (event) {
             q: searchTerm,
             lat: myLocation.latitude,
             long: myLocation.longitude,
-            radius: 10000, // meters
+            radius: 100, // meters
             sort: "rating",
             order: "desc"
         }
@@ -83,7 +91,7 @@ $("#restaurantButton").on("click", function (event) {
             let newCard = $("<div>").addClass("card animated restaurant-card bounceInRight");
 
             let newCardBody = $("<div>").addClass("card-body");
-            let saveButton = $("<button>").addClass("btn btn-success float-right").text("Save");
+            //let saveButton = $("<button>").addClass("btn btn-success float-right").text("Save");
 
             // Functionality not needed? Can change this to something more useful
             let cardBodyText = $("<div>");
@@ -107,7 +115,7 @@ $("#restaurantButton").on("click", function (event) {
             newA.addClass("card-header").text(`${response.restaurants[i].restaurant.name} | Rating: ${response.restaurants[i].restaurant.user_rating.aggregate_rating} | Distance from you: ${distance.toFixed(1)} miles`);
 
             newCard.append(newA);
-            newCardBody.append(saveButton);
+            //newCardBody.append(saveButton);
             newCardBody.append(cardBodyText);
             newCard.append(newCardBody);
 

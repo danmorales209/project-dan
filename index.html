@@ -16,68 +16,51 @@
     <script src="assets/javascript/location.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Eczar|Libre+Barcode+39+Text" rel="stylesheet">  
 
 
 </head>
 
-<body>
+<body class="animated fadeInDown">
 
-    <div class="container">
-        <!-- NavBar -->
-        <nav class=" p-2 navbar navbar-default animated bg-transparent fadeInDown">
-            <div class="row w-100">
-                <div class="col-sm-9">
-                    <h1 class="float-left display-4">Too Much Food</h1>
-                </div>
-                <!-- <div class="float-right"> -->
-                <!-- Sign Up Button -->
-                <div id="signUpModalButton" class="col-sm-1 p-0 m-0">
-                    <button type="button" class="btn" data-toggle="modal" data-target="#signUpModal">
-                        Sign-Up
-                    </button>
-                </div>
-
-                <!-- Sign-In Button -->
-                <div id="signInModalButton" class="col-sm-1 p-0 m-0">
-                    <button type="button" class="btn" data-toggle="modal" data-target="#signInModal">
-                        Sign-In
-                    </button>
-
-                    <!-- Sign Out Button -->
-                </div>
-                <div class="col-sm-2 p-0 m-0 text-center">
-                    <button type="button" class="btn" id="signOutButton" style="display: none;">Sign-Out</button>
-                </div>
-
-                <!-- Search field and button -->
-                <div id="searchField" class="row w-100">
-                    <!---<div id="searchField" style="display: flex; width: 100%; justify-content: space-between;"
-                        class="row"> -->
-
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="user-search" placeholder="&#x1F50D; search food">
-                    </div>
-                    <div class="col-2-sm">
-                        <button class="btn m-2 " id="recipeButton">Search for Recipes</button>
-                    </div>
-                    <div class="col-2-sm">
-                        <button class="btn m-2 " id="restaurantButton">Search for Restaurants</button>
-                    </div>
-                </div>
+    <div id="page-heading" class="container py-sm-2">
+        <div class="row animated fadeInDown">
+            <div class="col-sm-10">
+                <h1 id="title-text" class=" text-center">Too Much Food</h1>
             </div>
-        </nav>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div id="recipe-display">
-                    <p id="about animated fadeInDown">
-                        Welcome to our page
-                    </p>
-                </div>
+            <!-- Sign Up Button -->
+            <div id="signUpModalButton" class="col-sm-1 text-center p-sm-1">
+                <button type="button" class="btn align-middle" data-toggle="modal" data-target="#signUpModal">
+                    Sign-Up
+                </button>
+            </div>
+
+            <!-- Sign-In Button -->
+            <div id="signInModalButton" class="col-sm-1 text-center p-sm-1">
+                <button type="button" class="btn align-middle" data-toggle="modal"
+                    data-target="#signInModal">Sign-In</button>
+            </div>
+
+            <!-- Sign Out Button -->
+            <div class="col-sm-2 text-center p-sm-1">
+                <button type="button" class="btn align-middle" id="signOutButton"
+                    style="display: none;">Sign-Out</button>
+            </div>
+        </div>
+        <!-- Search field and button -->
+        <div id="searchField" class="row ">
+            <div class="col-sm-8">
+                <input type="text" class="form-control my-sm-2" id="user-search" placeholder="&#x1F50D; search food">
+            </div>
+            <div class="col-2-sm">
+                <button class="btn m-sm-2 " id="recipeButton">Search for Recipes</button>
+            </div>
+            <div class="col-2-sm">
+                <button class="btn m-sm-2 " id="restaurantButton">Search for Restaurants</button>
             </div>
         </div>
     </div>
+
 
     <!-- Sign-Up Modal -->
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -140,6 +123,19 @@
             </div>
         </div>
     </div>
+
+
+    <div id="results-container" class="container">
+        <div class="row">
+            <div class="col">
+                <!-- Display Search Results Here -->
+                <div id="recipe-display">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
     <script src="assets/javascript/code.js"></script>

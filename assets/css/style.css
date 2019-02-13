@@ -5,13 +5,11 @@ body {
     background-size: cover;
 }
 
-nav {
-    background: rgba(230, 230, 230, 0.6);
-
-}
-
 .container {
     background: rgba(230, 230, 230, 0.6);
+    border-radius: 15px;
+    border: 3px solid black;
+    margin: 1% auto;
 }
 
 .btn {
@@ -37,5 +35,42 @@ nav {
 }
 
 #about {
-    background-color: rgba(165, 219, 142, 0.75); 
+    background-color: rgba(165, 219, 142, 0.75);
+    font-size: 22px;
+    padding: 5px;
+    text-align: justify;
+    border-radius: 15px;
+}
+
+#page-heading{
+    background-color: rgba(255, 255, 255, .5);
+}
+
+#title-text {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    font-size: 3.5em;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+    text-shadow: 2px 2px 3px grey;
+    z-index: 0;
+}
+
+html, #signUpModal, #signInModal {
+    height: auto;
+}
+
+*{
+    font-family: 'Eczar', serif;
+}
+
+.title {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    text-shadow: 2px 2px 3px grey;
+    font-size: 1.8em;
+    margin: 0 2px;
+}
+
+#results-container {
+    display: none
 }
