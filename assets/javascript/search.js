@@ -99,6 +99,14 @@ $("#recipeButton").on("click", function (e) {
     var input = $("#user-search").val().trim();
     var rawInput = $("#user-search").val().trim();
 
+    if (input.length === 0) {
+        $("#user-search").addClass("animated tada");
+        setTimeout(function () {
+            $("#user-search").removeClass("animated tada");
+        }, 1000);
+        return;
+    }
+
     e.preventDefault(); // Prevent the page from reloading on click
 
     // Clear text from user input
