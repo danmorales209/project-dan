@@ -38,8 +38,7 @@ $("#signUpButton").on("click", e => {
     e.preventDefault();
     var email = $("#newEmail").val();
     var password = $("#newPassword").val();
-    console.log(email);
-    console.log(password);
+    
     // Get  FB authentication
     auth = firebase.auth();
     // Sign In
@@ -74,7 +73,6 @@ signOutButton.on("click", function () {
     $("#results-container").hide();
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
-        console.log("signed out")
     }).catch(function (error) {
         // An error happened.
     });
