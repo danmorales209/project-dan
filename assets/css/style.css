@@ -71,6 +71,11 @@ html, #signUpModal, #signInModal {
     margin: 0 2px;
 }
 
+#recipeButton, #restaurantButton {
+    height: auto;
+    width: auto;
+}
+
 #results-container {
     display: none
 }

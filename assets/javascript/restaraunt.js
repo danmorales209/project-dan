@@ -63,7 +63,7 @@ $("#restaurantButton").on("click", function (event) {
             q: searchTerm,
             lat: myLocation.latitude,
             long: myLocation.longitude,
-            radius: 100, // meters
+            radius: 10000, // meters
             sort: "rating",
             order: "desc"
         }
